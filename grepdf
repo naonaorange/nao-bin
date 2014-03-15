@@ -1,0 +1,23 @@
+#!/bin/sh
+
+if [ $1 = "-help" -o $1 = "-h" ]
+then
+  echo "
+検索したい文字列を引数に入れてください．
+現時点では引数は1つだけにしか対応していません．
+
+grepdf hoge
+"
+exit
+fi
+
+
+for i in *.pdf
+do
+echo ""
+echo "------------------------"
+echo "$i"
+echo "------------------------"
+echo ""
+pdftotext "$i" - | grep -n "$1"
+done
