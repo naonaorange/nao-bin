@@ -1,3 +1,24 @@
 #!/bin/sh
 
-echo $1 > /sys/class/backlight/intel_backlight/brightness
+if [ $1 = "-set" ]
+then
+  echo $2 > /sys/class/backlight/intel_backlight/brightness
+fi
+
+if [ $1 = "-get" ]
+then
+  cat /sys/class/backlight/intel_backlight/brightness
+fi
+
+if [ $1 = "-help" -o $1 = "-h" ]
+then
+  echo "-------------------------------------------------
+一度getオプションを実行して、現在の明るさを取得してから
+少しずつ明るさを落として調整してください
+-------------------------------------------------
+
+  -get : 現在の明るさを取得する
+  -set [num] : 明るさを指定する
+
+  "
+fi
