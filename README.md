@@ -14,7 +14,8 @@ pdftotextでテキスト変換してからgrepするので，pdftotextできな�
 
 現時点では引数は1つだけにしか対応していません．
 
-./grepdf.sh hoge
+Example)
+./grepdf.sh hoge.pdf
 
 
 light
@@ -31,3 +32,6 @@ light
 
  -set [num] : 明るさを指定する
 
+Example)
+./light -get
+sudo ./light -set 300
